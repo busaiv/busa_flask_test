@@ -1,6 +1,5 @@
-from flask import Flask
+from app import my_app
 
-my_app = Flask(__name__)
 
 @my_app.route('/hello')
 def hello():
@@ -36,7 +35,3 @@ def user_welcome(name, age):
             return 'Incorrect value'
     except ValueError:
         return f'Incorrect value'
-
-
-if __name__ == '__main__':
-    my_app.run(debug=True)
