@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: 'Manrope';
+    margin: 0px;
+}
+body {
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+h1 {
+    font-size: 35px;
+    color: #98a3df;
+}
+.button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 20px 20px;
+    background: #a8d5d5;
+    border-radius: 10px;
+}
+.form {
+    position: relative;
+    max-height: 0;
+    max-width: 0;
+    overflow: hidden;
+    background-color: #a8d5d5;
+    border-radius: 20px;
+    transition: max-width 0.5s cubic-bezier(0.23, 0.33, 0.6, 0.98),
+                max-height 0.5s cubic-bezier(0.23, 0.33, 0.6, 0.98);
+}
+.form::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #a8d5d5;
+    border-radius: 20px;
+    z-index: 1;
+    transition: background-color 3s linear;
+}
+.form-in {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.3s;
+    border: 5px solid #a8d5d5;
+    border-radius: 20px;
+    background: #e4ffff;
+    color: #98a3df;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px 20px 30px 20px;
+}
+
+.form-in-border {
+    border: 2px solid #a8d5d5;
+    border-radius: 6px;
+}
+.input-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 19px;
+    gap: 2px;
+}
+.add-area {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.add-input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 18px;
+}
+.add-input-area input[type="checkbox"],
+.add-input-area input[type="radio"] {
+    accent-color: #a8d5d5;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.add-input-area input[type="checkbox"]:hover,
+.add-input-area input[type="radio"]:hover {
+    transform: scale(1.1);
+}
+.add-input-area label {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.add-input-area label:hover {
+    transform: scale(1.1);
+}
+.submit-button {
+    background: #e4ffe9;
+    color: #c79987;
+    border: 2px solid #a8d5b8;
+    border-radius: 5px;
+    font-size: 17px;
+    align-self: stretch;
+    cursor: pointer;
+}
+.egg-button {
+    background: #e4ffe9;
+    color: #c79987;
+    border: 2px solid #a8d5b8;
+    border-radius: 5px;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+.image {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 5s ease;
+    z-index: 1000;
+}
+.image img {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+}
+#toggle {
+    display: none;
+}
+#toggle:checked ~ .form {
+    max-width: 600px;
+    max-height: 600px;
+    background-color: #e4ffff;
+}
+#toggle:checked ~ .form::before {
+    background-color: #e4ffff;
+}
+#toggle:checked ~ .form .form-in {
+    opacity: 1;
+}
+#toggle:checked ~ .button {
+    display: none;
+}
+#show-img {
+    display: none;
+}
+#show-img:checked ~ .image {
+    opacity: 1;
+    pointer-events: auto;
+}
