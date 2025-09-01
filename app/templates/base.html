@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Flask App{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class='container'>
+        <!-- Шапка -->
+        <header class="header">
+            <nav class='nav-menu'>
+                <a href='/' class='link'>Home</a>
+                <a href='{{ url_for("about") }}' class='link'>About</a>
+                <a href='{{ url_for("contact") }}'class='link'>Contact</a>
+            </nav>
+        </header>
+
+        <!-- Основной контент -->
+        <main class='{% block main_class %}{% endblock %}'>
+            {% block content %}
+            <!-- Контент будет вставляться здесь -->
+            {% endblock %}
+        </main>
+
+        <!-- Подвал -->
+        <footer>
+            <p>&copy; 2025 My Flask App</p>
+        </footer>
+    </div>
+</body>
+</html>

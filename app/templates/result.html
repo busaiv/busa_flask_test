@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Submission Result</title>
-</head>
-<body>
-    <h1>Submission Successful</h1>
-    <p>Thank you, <strong>{{ name }}</strong>!</p>
-    <p>Your favorite color - <strong>{{ color }}</strong>!
-        <span style='display:inline-block; width:20px; height:20px;
-        background-color:{{ color }}; border:1px solid #000;'></span>
-    </p>
-    <p>Your profession - <strong>{{ profession }}</strong>!</p>
-    <p>Your hobbies - <strong>{{ ', '.join(hobbies) }}</strong>!</p>
-    <p>Your level - <strong>{{ level }}</strong>!</p>
-    <p>We have sent a confirmation to <strong>{{ email }}</strong>.</p>
-    <a href="/">Go back to form</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Contact{% endblock %}
+{% block main_class %}main-result{% endblock %}
+
+{% block content %}
+    <h1>Ваше сообщение отправлено.</h1>
+    <p>{{ name }}, ожидайте ответ на почту {{ email }}</p>
+    <h2>Текст вашего сообщения</h2>
+    <p>{{ message }}</p>
+{% endblock %}
